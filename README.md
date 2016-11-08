@@ -1,6 +1,6 @@
 # basic_latex
-
-Usage
-xelatex report.tex
-bibtex report
-xelatex report.tex
+<br>
+Usage<br>
+xelatex report.tex<br>
+bibtex report<br>
+xelatex report.tex<br>
