@@ -50,6 +50,13 @@ Lorem ipsum
 \cite{nixon2008feature}
 \cite{oliva2006hybrid}
 
+% no page break for bibliography
+\printshorthands
+\begingroup
+\renewcommand{\cleardoublepage}{}
+\renewcommand{\clearpage}{}
 \printbibliography
+\endgroup
+%\printbibliography % new page for bibliography
 
 \end{document}
