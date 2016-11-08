@@ -6,9 +6,34 @@
 \usepackage{sectsty}
 \sectionfont{\fontsize{15}{15}\selectfont}
 
+\usepackage[backend=bibtex,style=numeric]{biblatex} %backend=biber is 'better'
+
 \usepackage[nodayofweek]{datetime}
 \newdate{date}{11}{10}{1992}
 \date{\displaydate{date}}
+
+\RequirePackage{filecontents}
+\begin{filecontents}{mybib.bib}
+@book{nixon2008feature,
+  title={Feature extraction \& image processing},
+  author={Nixon, Mark},
+  year={2008},
+  publisher={Academic Press}
+}
+
+@inproceedings{oliva2006hybrid,
+  title={Hybrid images},
+  author={Oliva, Aude and Torralba, Antonio and Schyns, Philippe G},
+  booktitle={ACM Transactions on Graphics (TOG)},
+  volume={25},
+  number={3},
+  pages={527--532},
+  year={2006},
+  organization={ACM}
+}
+
+\end{filecontents}
+\addbibresource{mybib.bib}
 
 \begin{document} 
 
@@ -22,5 +47,9 @@
 \section*{Section}
 
 Lorem ipsum
+\cite{nixon2008feature}
+\cite{oliva2006hybrid}
+
+\printbibliography
 
 \end{document}
