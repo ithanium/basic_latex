@@ -12,6 +12,20 @@
 \newdate{date}{11}{10}{1992}
 \date{\displaydate{date}}
 
+\usepackage{float}
+\usepackage{subfig}
+\usepackage{bm}
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{xcolor}
+\usepackage{listings}
+\lstset{
+    frame=single,
+    breaklines=true,
+    postbreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\color{red}\hookrightarrow\space}}
+}
+%\usepackage[]{mcode}
+
 \RequirePackage{filecontents}
 \begin{filecontents}{mybib.bib}
 @book{nixon2008feature,
@@ -38,25 +52,80 @@
 \begin{document} 
 
 \hspace*{\fill}
-{\LARGE \bf Report}
+{\LARGE \bf Report title}
 \hspace*{\fill}
-
+\\
+\\
 \noindent{\bf Name:} Gabriel Stratan\\ 
 {\bf E-mail:} gis1u16@soton.ac.uk\\
+{\bf Student ID:} 28969626\\
+{\bf Course ID:} COMP6223\\
+%\section*{Section} % remove section title
+%\\
 
-\section*{Section}
+\begin{figure}[H]
+    \centering
 
-Lorem ipsum
-\cite{nixon2008feature}
-\cite{oliva2006hybrid}
+        \includegraphics[width=0.25\linewidth]{data/dog.bmp}%
 
-% no page break for bibliography
+    \hspace*{0.5cm}
+
+        \includegraphics[width=0.25\linewidth]{data/cat.bmp}%
+
+    \hspace*{0.5cm}
+
+        \includegraphics[width=0.25\linewidth]{hybrid_image_dog_cat.jpg}%
+
+        \caption{Picture of a dog, a cat and a combined hybrid image}
+        \label{fig:one}
+\end{figure}
+
+\vspace*{-1cm}
+\begin{center}
+\[
+  g(x,y) = e^{-\frac{x^2+y^2}{2\sigma^2}} \tag{1} \label{eq:1}
+\]
+\end{center}
+
+\\
+\\
+
+\begin{center}
+\begin{figure}[H]
+  \begin{minipage}{.5\textwidth}
+    \raggedright
+\[ {\bm{Filter}} = \left( \begin{array}{ccccc}
+  0.02 & 0.08 & 0.14 & 0.08 & 0.02\\
+  0.08 & 0.37 & 0.61 & 0.37 & 0.08\\
+  0.14 & 0.61 & 1.0 & 0.61 & 0.14\\
+  0.08 & 0.37 & 0.61 & 0.37 & 0.08\\
+  0.02 & 0.08 & 0.14 & 0.08 & 0.02
+\end{array} \right)
+\]
+\end{minipage}
+\end{figure}
+\end{center}
+
+\vspace{-1cm}
+
+\noindent Lorem ipsum \cite{oliva2006hybrid} \cite{nixon2008feature}
+
+% to print it on same page
 \printshorthands
 \begingroup
 \renewcommand{\cleardoublepage}{}
 \renewcommand{\clearpage}{}
-\printbibliography
+\printbibliography[heading=none] % to remove section title
 \endgroup
-%\printbibliography % new page for bibliography
+%\printbibliography
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.80\linewidth]{result_dog_cat.jpg}
+  \caption{Hybrid image of a dog (low fq) and a cat (high fq)}
+          \label{fig:three}
+\end{figure}
+
+\lstinputlisting{convolve.m}
 
 \end{document}
